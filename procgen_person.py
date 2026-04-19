@@ -29,6 +29,10 @@ class PgPerson:
 
     logo = None
 
+    born_system = None
+    age = None
+
+
 
     def __init__(self, name: str):
         self.name = name
@@ -40,6 +44,9 @@ class PgPerson:
         self.race = ProcgenName().single_from_seed(self.seed).name
         self.comms = self.comms_types[(self.seed.w0_lo._val >> 3) & 0b00000111]
         self.logo = PgLogo(self.name)
+        self.age = self.seed.w0_hi._val
+        self.seed.next_seed()
+        self.born_system = ProcgenName().single_from_seed(self.seed).name
 
         return self
         
@@ -52,6 +59,8 @@ class PgPerson:
             f"\t\t\t\tPronouns:\t{self.pronouns}\n"
             f"\t\t\t\tRace:\t\t{self.race}\n"
             f"\t\t\t\tComms:\t\t{self.comms}\n"
+            f"\t\t\t\tBorn on:\t{self.born_system}\n"
+            f"\t\t\t\tAge:\t\t{self.age}\n"
             f"\t\t\t\tLogo:\n{self.logo}\n"
         )
 
