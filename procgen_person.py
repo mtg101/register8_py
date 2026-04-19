@@ -1,6 +1,7 @@
 from register8 import Register8
 from procgen_seed48 import Seed48
 from procgen_name import ProcgenName
+from procgen_logo import PgLogo
 import copy
 
 
@@ -26,6 +27,8 @@ class PgPerson:
 
     race = None
 
+    logo = None
+
 
     def __init__(self, name: str):
         self.name = name
@@ -36,6 +39,7 @@ class PgPerson:
         self.pronouns = self.pronoun_types[self.seed.w0_lo._val & 0b00000111]
         self.race = ProcgenName().single_from_seed(self.seed).name
         self.comms = self.comms_types[(self.seed.w0_lo._val >> 3) & 0b00000111]
+        self.logo = PgLogo(self.name)
 
         return self
         
@@ -48,6 +52,7 @@ class PgPerson:
             f"\t\t\t\tPronouns:\t{self.pronouns}\n"
             f"\t\t\t\tRace:\t\t{self.race}\n"
             f"\t\t\t\tComms:\t\t{self.comms}\n"
+            f"\t\t\t\tLogo:\n{self.logo}\n"
         )
 
 
