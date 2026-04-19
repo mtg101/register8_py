@@ -72,7 +72,7 @@ class ProcgenName:
 
     def single_from_seed(self, seed: Seed48):
         self.name = ""
-        return self.add_name()
+        return self.add_name(seed)
     
     def multi_from_seed(self, seed: Seed48):
         self.name = ""

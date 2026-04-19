@@ -1,6 +1,7 @@
 from register8 import Register8
 from procgen_seed48 import Seed48
 from procgen_name import ProcgenName
+from procgen_person import PgPerson
 import copy
 
 
@@ -77,7 +78,7 @@ class PgSystem:
             self.station_services_available += f"{self.station_services[3]}\t"
 
         self.seed.next_seed()
-        self.station_manager = ProcgenName().multi_from_seed(self.seed)
+        self.station_manager = PgPerson(ProcgenName().multi_from_seed(self.seed).name)
 
 
         return self
@@ -96,8 +97,8 @@ class PgSystem:
             f"\t2nd colour:\t{self.colour_2}\n"
             f"\tSecurity:\t{self.security_level}\n"
             f"\tPlanets:\n{planets}"
-            f"\tStation\n\t  services:\t{self.station_services_available}\n"
-            f"\tStation\n\t  manager:\t{self.station_manager}\n"
+            f"\tStation services:\n\t\t\t{self.station_services_available}\n"
+            f"\tStation manager:\n{self.station_manager}\n"
         )
 
 
