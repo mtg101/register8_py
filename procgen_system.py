@@ -25,12 +25,12 @@ class PgSystem:
     colour_2 = None
 
     sun_types = ["Red Dwarf (M-type)", "Yellow Dwarf (G-type)", "Blue Star (O-type)", "Red Giant", 
-                    "Binary", "White Dwarf", "Neturon Star", "Brown Dwarf"]
+                    "Binary", "White Dwarf", "Neutron Star", "Brown Dwarf"]
     sun_type = None
 
 
-    planet_types = ["Terrestial", "Super-Earth", "Ice Giant", "Gas Giant", 
-                    "Ocean", "Lava", "Rogue", "Dessert"]
+    planet_types = ["Terrestrial", "Super-Earth", "Ice Giant", "Gas Giant", 
+                    "Ocean", "Lava", "Rogue", "Desert"]
     planets_types = None
     planets_names = None
 
