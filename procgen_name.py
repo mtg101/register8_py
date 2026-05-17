@@ -40,17 +40,23 @@ class ProcgenName:
         "JaJiJuJeJoJy"
 
         "KaKiKuKeKoKy"
-        "SaSiSuSeSoSy"
+        "A I U E O N "
         "TaSiTuTeToTy"
         "NaNiNuNeNoNy"
-        "HaHiHuHeHoHy"
-        "' - "
+        "/ ' - . : + "
+        "s1s2"
     )
+
+
 
     # 128 pairs for 256 len is what we want here
     @classmethod
     def len(cls):
         return len(cls.the_one_string)
+
+    @classmethod
+    def the_one_string_for_c64(cls):
+        return cls.the_one_string.lower()
     
     # creates name of len pairs from RNG
     def rng_len(self, len: int):
@@ -85,7 +91,6 @@ class ProcgenName:
 
         return self
 
-
     def add_name(self, seed: Seed48):
         size_list = [1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5]
         # how many pairs
@@ -101,9 +106,10 @@ class ProcgenName:
 
         return self
 
-
-
 if __name__ == "__main__":
+    print("The One String length: ", ProcgenName.len())
+    print("The One String:\n", ProcgenName.the_one_string_for_c64(), "\n")
+
     seed = Seed48()
     name = "Bob 0"
     print(name)
@@ -115,7 +121,7 @@ if __name__ == "__main__":
     seed.set_from_name(name)
     name = ProcgenName().multi_from_seed(seed)
     print(name)
-    name = "Bob 2"
+    name = "Bob 3332222"
     print(name)
     seed.set_from_name(name)
     name = ProcgenName().multi_from_seed(seed)
@@ -125,6 +131,7 @@ if __name__ == "__main__":
     seed.set_from_name(name)
     name = ProcgenName().multi_from_seed(seed)
     print(name)
+
 
 
 
